@@ -1,14 +1,18 @@
+#include <stddef.h>
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
-#include <stdint.h>
 
-int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        fprintf(stderr, "Usage: utf8analyzer \"<UTF-8 encoded string>\"\n");
-        return 1;
+// Converts lowercase ASCII letters a–z in `str` to uppercase, in‑place.
+void ascii_to_upper(char str[]) {
+    for (int i = 0; str[i] != '\0'; ++i) {
+        if (str[i] >= 'a' && str[i] <= 'z') {
+            str[i] -= 32;
+        }
     }
-
-    // implement the UTF-8 analyzer here
 }
+int main() {
+    char msg[] = "Hello there";
+    ascii_to_upper(msg);
+    printf("%s\n", msg);  // Output: HELLO, SID!
+    return 0;
+}
+
