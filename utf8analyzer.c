@@ -8,17 +8,17 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-void ascii_to_upper(char str[], char upper_string[]) {
+void ascii_to_upper(const char str[], char upper_string[]) {
     int i = 0;
-    while(str[i] != "\0") {
+    while(str[i] != '\0') {
         if (str[i] >= 'a' && str[i] <= 'z') {
             upper_string[i] = str[i] - 32;
         } else {
             upper_string[i] = str[i];
         }
-    upper_string[i] = "\0";
     i++;
     }
+    upper_string[i] = '\0';
 }
 
 int main(int argc, char *argv[]) {
